@@ -1,0 +1,8 @@
+# Stage all changes (or use `git add filename.js` to add specific files)
+git add . 
+
+# Commit with a meaningful message                         
+git commit -m "describe your change" 
+
+# Push to GitHub 
+git push  
