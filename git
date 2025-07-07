@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "describe your change" 
+git commit -m "Structured the whole thing" 
 
 # Push to GitHub 
 git push  

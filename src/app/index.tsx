@@ -1,10 +1,15 @@
+import { Container, TxtBody, TxtTitle } from "../comp/general/RestyleComp";
 
-import { Text, View } from "../comp/CusTheme";
 
-export default function Index() {
+
+
+export default function HomeScreen() {
   return (
-   <View style={{flex: 1}}>
-      <Text>Hello world</Text>
-   </View>
+<>
+    <Container>
+      <TxtTitle>Welcome</TxtTitle>
+      <TxtBody >Hi There</TxtBody>
+    </Container>
+</>
   );
 }

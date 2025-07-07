@@ -9,7 +9,7 @@ import {
   View as DefaultView,
   useColorScheme,
 } from 'react-native';
-import Colors from '../const/Colors';
+import Colors from '../../const/Colors';
 
 
 
