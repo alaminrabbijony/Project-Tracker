@@ -1,14 +1,20 @@
 // theme.ts
-import { createTheme, color } from '@shopify/restyle';
+import { createTheme } from '@shopify/restyle';
 
 export const baseTheme = createTheme({
   colors: {
-    primary: '#27391C',
+    primary: '#B0DB9C',
     secondary: '#FF4949',
     background: '#ffffff',
+    navBg: '#B0DB9C',
     card: '#f6f6f6',
-    text: '#27391C',
-    border: '#9EBC8A',
+    text: 'black',
+    border:'#DA6C6C',
+    //Nav Colors
+    headerTint: '#FF0000',
+    iconColor: '#758079',
+    iconTintActiveColor: '#FF0000',
+    navBodyBorder: '#758079',
   },
   spacing: {
     none: 0,
@@ -45,12 +51,22 @@ export const lightTheme = baseTheme;
 export const darkTheme = createTheme({
   ...baseTheme,
   colors: {
-    primary: '#FF4949',
+    primary: '#B0DB9C',
     secondary: '#FF4949',
-    background: '#121212',
+   // background: '#121212',
+      background: '#2C3930',
+   // background: '#1F7D53',
+    //  navBg: '#27391C',
+    
+
+    //Nav
+    headerTint: '#B0DB9C',
+    navBg: '#2C2C2C',
+    iconTintActiveColor: '#B0DB9C',
+    iconColor: '#758079',
     card: '#1e1e1e',
-    text: '#FF4949',
-    border: '#DA6C6C',
+    text: '#ffffff',
+    border: '#9EBC8A',
   },
 });
 

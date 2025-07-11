@@ -1,3 +1,17 @@
 => Create git inregation = done
 => used Restyle by shopify for theme
-=> building customize theme at theme.ts
+=> building customize theme with = done
+=> Nav 
+    ->app/
+        ├── _layout.tsx                # Root Stack layout
+        ├── index.tsx                  # Home screen (unfinished projects)
+        ├── (tabs)/                    # Bottom Tab Navigator
+        │   ├── _layout.tsx            # Defines Bottom Tabs
+        │   ├── CreateProject.tsx      # "+ Add" Tab → New Project / Edit Unfinished
+        │   ├── FinProjects.tsx        # Finished Projects tab
+        ├── projects/
+        │   ├── [id].tsx               # Unfinished Project Details
+        │   └── finished/
+        │       └── [id].tsx           # Finished Project Details (read-only)
+        ├── processes/
+        │   └── [processId].tsx        # Process Management screen

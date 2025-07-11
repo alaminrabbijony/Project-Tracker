@@ -1,15 +1,11 @@
-import { Container, TxtBody, TxtTitle } from "../comp/general/RestyleComp";
-
-
-
+import { router } from "expo-router";
+import { useEffect } from "react";
 
 export default function HomeScreen() {
-  return (
-<>
-    <Container>
-      <TxtTitle>Welcome</TxtTitle>
-      <TxtBody >Hi There</TxtBody>
-    </Container>
-</>
-  );
+  useEffect(()=> {
+    setTimeout(() => {
+      router.replace('/(tabs)')
+    }, 0);
+  },[])
+  return null
 }

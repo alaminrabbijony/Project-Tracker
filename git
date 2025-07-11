@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "Structured the whole thing" 
+git commit -m "Theme settings are done with custome comp" 
 
 # Push to GitHub 
 git push  
