@@ -15,3 +15,8 @@
         │       └── [id].tsx           # Finished Project Details (read-only)
         ├── processes/
         │   └── [processId].tsx        # Process Management screen
+
+=> Implemented theme-based navigation bar using Restyle theme values for colors and spacing
+=> Nav bar adapts to light/dark mode and uses theme palette for active/inactive tab icons
+=> Custom TabBar component created to consume theme and provide consistent styling
+=> 

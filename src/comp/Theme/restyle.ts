@@ -6,15 +6,31 @@ export const baseTheme = createTheme({
     primary: '#B0DB9C',
     secondary: '#FF4949',
     background: '#ffffff',
-    navBg: '#B0DB9C',
+   
     card: '#f6f6f6',
     text: 'black',
     border:'#DA6C6C',
+
+
     //Nav Colors
-    headerTint: '#FF0000',
+    //navBg: '#2C3930',
+    navBg: "#B0DB9C",
+    //headerTint: '#FF0000',
+    headerTint: '#000000',
     iconColor: '#758079',
-    iconTintActiveColor: '#FF0000',
+    //iconTintActiveColor: '#FF0000',
+    iconTintActiveColor: '#000000',
     navBodyBorder: '#758079',
+
+        //Card Colors:
+    //title: '#2C3930',
+    plain: '#ffffff',
+    title:  "#B0DB9C",
+    cardBg: '#2C3930',
+    logBg: 'white',
+    logTxt: '#000000',
+
+
   },
   spacing: {
     none: 0,
@@ -40,7 +56,7 @@ export const baseTheme = createTheme({
     },
     body: {
       fontSize: 16,
-      color: 'primary'
+      color: 'text',
     },
   },
   breakpoints: {},
@@ -55,18 +71,32 @@ export const darkTheme = createTheme({
     secondary: '#FF4949',
    // background: '#121212',
       background: '#2C3930',
+      bg2: '#2C2C2C',
    // background: '#1F7D53',
     //  navBg: '#27391C',
-    
+    bg100: "#2C3930",
+    bg200: "#3F4F44",
+    g100: '#B0DB9C',
+    dg100: '#0A400C',
+    b100: '#2C2C2C',
 
     //Nav
     headerTint: '#B0DB9C',
-    navBg: '#2C2C2C',
+    //navBg: '#2C2C2C',
+    navBg: 'black',
+    navBodyBorder: 'black',
     iconTintActiveColor: '#B0DB9C',
     iconColor: '#758079',
     card: '#1e1e1e',
     text: '#ffffff',
     border: '#9EBC8A',
+
+    //Card Colors:
+    title: '#B0DB9C',
+    plain: '#ffffff',
+    cardBg:  "#2C3930",
+    logBg: 'black',
+    logTxt: '#ffffff'
   },
 });
 
