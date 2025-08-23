@@ -1,6 +1,6 @@
 import React, { ComponentProps } from "react";
 import { Pressable, StyleProp, StyleSheet, ViewStyle } from "react-native";
-import { Container, TxtBody } from "./RestyleComp";
+import { TxtBody } from "./RestyleComp";
 
 type BtnProps = {
   children: string;
@@ -9,7 +9,7 @@ type BtnProps = {
 
 export default function Btn({ children, style, ...pressableProps }: BtnProps) {
   return (
-    <Container>
+    
       <Pressable
         {...pressableProps}
         style={({ pressed }) =>
@@ -18,7 +18,7 @@ export default function Btn({ children, style, ...pressableProps }: BtnProps) {
       >
         <TxtBody style={styles.txt}>{children}</TxtBody>
       </Pressable>
-    </Container>
+   
   );
 }
 

@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "nav design is done" 
+git commit -m "update after HDD creash" 
 
 # Push to GitHub 
 git push  

@@ -29,7 +29,7 @@ export default function CustomeTxtInput({
   });
   const t = useTheme();
   return (
-   <Container style={containerStyle}>
+   <Container style={[containerStyle, { marginBottom: 12 }]}>
       {label && <TxtBody>{label}</TxtBody>}
 
       <TextInput
