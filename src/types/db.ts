@@ -1,5 +1,6 @@
 export type DBTask = {
     id: string;
+    name: string;
     createdAt: string;
     finishedAt: string | null;
 }
@@ -12,5 +13,6 @@ export type DBProcess = {
 export type DBLog = {
     id: string;
     processId: string;
+    msg: string;
     // more needed
 }

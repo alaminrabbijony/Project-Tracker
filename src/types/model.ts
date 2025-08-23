@@ -1,5 +1,6 @@
 export type Task = {
   id: string;
+  name: string;
   createdAt: Date;
   finishedAt: Date | null ;
 };
@@ -13,6 +14,7 @@ export type Process = {
 export type Log = {
     id: string;
     processId: string;
+    msg: string;
     // more needed
 }
 

@@ -19,4 +19,5 @@
 => Implemented theme-based navigation bar using Restyle theme values for colors and spacing
 => Nav bar adapts to light/dark mode and uses theme palette for active/inactive tab icons
 => Custom TabBar component created to consume theme and provide consistent styling
-=> 
+=> Created card for displaying the project overview.
+=> Txt input with xod is beign implemented.
