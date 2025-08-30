@@ -2,12 +2,13 @@ import Btn from "@/comp/general/Btn";
 import CustomeTxtInput from "@/comp/general/CustomeTxtInput";
 import { Container, TxtTitle } from "@/comp/general/RestyleComp";
 import { taskSchema } from "@/schema/schema";
+import Fontisto from "@expo/vector-icons/Fontisto";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTheme } from "@shopify/restyle";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 type formData = {
   taskName: string;
@@ -39,12 +40,20 @@ export default function Add() {
     console.log("submitted data:", data);
     if (data.taskName.trim()) {
       setTname(data.taskName);
-      router.replace(`/projects/[id]`);
+      router.push(`/projects/[id]`);
     }
   };
 
   return (
     <Container style={[styles.root]}>
+      <View style={styles.closeBtn}>
+        <Fontisto
+        name="close-a"
+        size={32}
+        color={t.colors.headerTint}
+        onPress={() => router.back()}
+      />
+      </View>
       <Container style={styles.form}>
         <TxtTitle style={styles.title}>Project Name</TxtTitle>
         <CustomeTxtInput
@@ -79,6 +88,11 @@ const styles = StyleSheet.create({
     alignItems: "center", // center horizontally
     padding: 20,
   },
+  closeBtn: {
+   alignItems: "flex-end",
+   width: "100%",
+   padding: 10,
+  },
   form: {
     width: "100%",
     alignItems: "center",
@@ -94,6 +108,6 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "90%",
-    marginBottom: 220,
+    marginBottom: 200,
   },
 });

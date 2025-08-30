@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "update after HDD creash" 
+git commit -m "Updated the createProject" 
 
 # Push to GitHub 
 git push  

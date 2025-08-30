@@ -23,7 +23,7 @@ export const baseTheme = createTheme({
 
     //Card Colors:
     //title: '#2C3930',
-    plain: "#ffffff",
+    plain: "#111",
     title: "#B0DB9C",
     cardBg: "#2C3930",
     logBg: "white",
@@ -36,6 +36,20 @@ export const baseTheme = createTheme({
 
     //Modal BG
     modalBgColor: "#B0DB9C",
+
+    //Project Screen
+    psBorder: "black",
+    createProcessBtnBg: "white",
+    pressedCpBg: "#f6f6f6",
+    psListCardBg: "#F6F6F6",
+    //psCard
+    pscBg: "white",
+    pscBorder: "#9EBC8A",
+    pscBorderBg: "#F6F6F6",
+    pscTxt: "black",
+    pscTxtSub: "#111",
+    pscSideBorder: "#9EBC8A",
+    pscSideBorderBg: "#9EBC8A",
   },
   spacing: {
     none: 0,
@@ -98,7 +112,8 @@ export const darkTheme = createTheme({
 
     //Card Colors:
     title: "#B0DB9C",
-    plain: "#ffffff",
+    
+    plain: "#f6f6f6",
     cardBg: "#2C3930",
     logBg: "black",
     logTxt: "#ffffff",
@@ -106,9 +121,23 @@ export const darkTheme = createTheme({
     //Txt input
     inputBg: "#3F4F44",
     inputBorder: "#2C3930",
-     inputColor: "#ffffff",
-     //modal 
-      modalBgColor: "#2C3930",
+    inputColor: "#ffffff",
+    //modal
+    modalBgColor: "#2C3930",
+
+    //Project Screen
+    psBorder: "#9EBC8A",
+    createProcessBtnBg: "black",
+    pressedCpBg: "#111",
+    psListCardBg: "#111",
+    //psCard
+    pscBg: "black",
+    pscBorder: "#9EBC8A",
+    pscBorderBg: "#111",
+    pscTxt: "white",
+    pscTxtSub: "#ccc",
+    pscSideBorder: "#9EBC8A",
+    pscSideBorderBg: "#9EBC8A",
   },
 });
 

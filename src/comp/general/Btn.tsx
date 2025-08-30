@@ -9,16 +9,14 @@ type BtnProps = {
 
 export default function Btn({ children, style, ...pressableProps }: BtnProps) {
   return (
-    
-      <Pressable
-        {...pressableProps}
-        style={({ pressed }) =>
-          pressed ? [styles.pressed, styles.root, style] : [styles.root, style]
-        }
-      >
-        <TxtBody style={styles.txt}>{children}</TxtBody>
-      </Pressable>
-   
+    <Pressable
+      {...pressableProps}
+      style={({ pressed }) =>
+        pressed ? [styles.pressed, styles.root, style] : [styles.root, style]
+      }
+    >
+      <TxtBody style={styles.txt}>{children}</TxtBody>
+    </Pressable>
   );
 }
 

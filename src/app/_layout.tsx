@@ -4,7 +4,7 @@ import { ThemeProvider } from "../comp/Theme/ThemeProvider";
 export default function RootLayout() {
   return (
     <ThemeProvider>
-       <Stack screenOptions={{ }}>
+       <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name='index' options={{ headerShown: false}} />
           <Stack.Screen name='(tabs)' options={{ headerShown: false}} />
           <Stack.Screen name='projects/[id].tsx' options={{ headerShown: false}} />
