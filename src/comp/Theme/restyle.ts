@@ -50,6 +50,11 @@ export const baseTheme = createTheme({
     pscTxtSub: "#111",
     pscSideBorder: "#9EBC8A",
     pscSideBorderBg: "#9EBC8A",
+
+       //Logs Chat
+    logsOuter: "#9EBC8A",
+    logsInner: "#111",
+    logsBg: "#EEEFE0",
   },
   spacing: {
     none: 0,
@@ -138,6 +143,17 @@ export const darkTheme = createTheme({
     pscTxtSub: "#ccc",
     pscSideBorder: "#9EBC8A",
     pscSideBorderBg: "#9EBC8A",
+
+    //Logs Chat
+    logsOuter: "#9EBC8A",
+    logsInner: "#2C3930",
+    logsBg: "#3F4F44",
+    //chatScreen
+    chatScreenBg: "#2C3930",
+    chatFooterBg: "#2C3930",
+    chatFooterBorder: "#9EBC8A",
+    chatInput: "#3F4F44",
+    chatInputColor: 'white',
   },
 });
 

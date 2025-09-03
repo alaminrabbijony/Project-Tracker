@@ -4,8 +4,12 @@ import { useEffect } from "react";
 export default function HomeScreen() {
   useEffect(()=> {
     setTimeout(() => {
-      router.replace('/(tabs)')
+      router.replace('/process/[id]');
     }, 0);
   },[])
   return null
+
+  // return(
+  //   <ChatScreen/>
+  // )
 }

@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "Updated the createProject" 
+git commit -m "Process sc done" 
 
 # Push to GitHub 
 git push  

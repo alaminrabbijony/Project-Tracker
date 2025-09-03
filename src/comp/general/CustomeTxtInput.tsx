@@ -1,8 +1,12 @@
 import { useTheme } from "@shopify/restyle";
 import React, { ComponentProps } from "react";
 import { useController } from "react-hook-form";
-import { StyleProp, StyleSheet, TextInput, ViewStyle } from "react-native";
-import { Container, TxtBody } from "./RestyleComp";
+import {
+  StyleProp,
+  StyleSheet,
+  TextInput,
+  ViewStyle
+} from "react-native";
 
 type CustomeTxtInputProps = {
   label?: string;
@@ -28,9 +32,10 @@ export default function CustomeTxtInput({
     rules: { required: `${label} is required` },
   });
   const t = useTheme();
+
   return (
-   <Container style={[containerStyle, { marginBottom: 12 }]}>
-      {label && <TxtBody>{label}</TxtBody>}
+    // <Container style={[containerStyle, {}]}>
+    //   {label && <TxtBody>{label}</TxtBody>}
 
       <TextInput
         {...textInputProps}
@@ -47,7 +52,7 @@ export default function CustomeTxtInput({
           textInputProps.style,
         ]}
       />
-    </Container>
+    // </Container>
   );
 }
 
