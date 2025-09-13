@@ -2,7 +2,10 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "Process sc done" 
+git commit -m "used dev build and used giftedChat" 
 
 # Push to GitHub 
 git push  
+
+# For new emulator
+npx expo run:android

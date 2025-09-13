@@ -1,3 +1,5 @@
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { IconProps } from "@expo/vector-icons/build/createIconSet";
 import {
   backgroundColor,
   BackgroundColorProps,
@@ -24,7 +26,6 @@ import {
   ViewStyle,
 } from "react-native";
 import { Theme } from "../Theme/restyle";
-
 
 export const Box = createBox<Theme>();
 export const Text = createText<Theme>();
@@ -76,3 +77,16 @@ export const TxtBody = ({ children, style, ...rest }: txtProps) => {
 export const TxtTitle = ({ children, style, ...rest }: txtProps) => {
   return <Text {...rest} style={style} variant="header">{children}</Text>;
 };
+
+
+// Grab the glyph names for MaterialIcons
+type MaterialIconName = keyof typeof MaterialIcons.glyphMap;
+
+// Build our combined props: MaterialIcons + Restyle Box
+type RestyleIconProps = IconProps<MaterialIconName> &
+  React.ComponentProps<typeof Box>;
+export const IconBtn: React.FC<RestyleIconProps> = ({name, size = 24, color, ...props}) => (
+  <Box {...props}>
+     <MaterialIcons name={name} size={size} color={color} />
+  </Box>
+)

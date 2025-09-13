@@ -4,7 +4,8 @@ import { useEffect } from "react";
 export default function HomeScreen() {
   useEffect(()=> {
     setTimeout(() => {
-      router.replace('/process/[id]');
+      //router.replace('/process/[id]');
+      router.replace('/(tabs)');
     }, 0);
   },[])
   return null

@@ -30,3 +30,8 @@
             -> i am using `npm install react-native-keyboard-controller`
             -> and `npm install react-native-reanimated`
             -< babel config folder needs to be change
+
+=? didnt worked so i used dev build and implemented
+            -> renderSend
+            -> renderComposer
+            -> renderInputToolBar

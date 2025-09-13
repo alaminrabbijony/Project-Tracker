@@ -1,0 +1,14 @@
+# Delete android folder
+Remove-Item -Recurse -Force .\android
+
+# Delete node_modules
+Remove-Item -Recurse -Force .\node_modules
+
+# Delete package-lock.json
+Remove-Item -Force .\package-lock.json
+
+#Re-install and rebuild:
+
+npm install
+npx expo prebuild
+npx expo run:android

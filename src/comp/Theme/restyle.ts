@@ -55,6 +55,11 @@ export const baseTheme = createTheme({
     logsOuter: "#9EBC8A",
     logsInner: "#111",
     logsBg: "#EEEFE0",
+    logPrimary:"#9EBC8A",
+    logsSecondary: '#2C3930',
+    iconBtn: "black",
+   
+    
   },
   spacing: {
     none: 0,
@@ -124,7 +129,7 @@ export const darkTheme = createTheme({
     logTxt: "#ffffff",
 
     //Txt input
-    inputBg: "#3F4F44",
+    inputBg: "#2C3930",
     inputBorder: "#2C3930",
     inputColor: "#ffffff",
     //modal
@@ -154,6 +159,10 @@ export const darkTheme = createTheme({
     chatFooterBorder: "#9EBC8A",
     chatInput: "#3F4F44",
     chatInputColor: 'white',
+    logPrimary: "black",
+    logsSecondary: "#9EBC8A",
+    iconBtn: "#9EBC8A",
+   
   },
 });
 
