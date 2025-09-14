@@ -1,7 +1,10 @@
+import { logInput, logSchema } from "@/schema/schema";
 import { Log } from "@/types/model";
 import { iMessageToLog, LogToImsg } from "@/util/GiftedTOModelMapper";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useTheme } from "@shopify/restyle";
 import React, { useCallback, useState } from "react";
+import { useForm } from "react-hook-form";
 import { StyleSheet } from "react-native";
 import {
   Bubble,
@@ -21,6 +24,11 @@ export default function LogScreen() {
   const t = useTheme();
   const insets = useSafeAreaInsets();
 
+  //zod
+  const { control, handleSubmit, reset } = useForm<logInput>({
+    resolver: zodResolver(logSchema),
+  });
+
   const msges: IMessage[] = log.map(LogToImsg);
 
   //Prebuild data
@@ -36,10 +44,38 @@ export default function LogScreen() {
   //   ]);
   // }, []);
 
-  const onSend = useCallback((newMsgs: IMessage[] = []) => {
+  // const onSend = useCallback(
+  //   (newMsgs: IMessage[] = []) => {
+  //     const newLog = newMsgs.map(iMessageToLog);
+  //     setLog((l) => [...newLog, ...l]);
+  //     reset();
+  //   },
+  //   [reset]
+  // );
+  const onSend = (newMsgs: IMessage[] = []) => {
+    const validated = logSchema.safeParse({ msg: newMsgs[0].text });
+    if (!validated.success) {
+      console.warn(validated.error.issues);
+      return; // ❌ reject bad input
+    }
+
     const newLog = newMsgs.map(iMessageToLog);
-    setLog((l) => [...newLog, ...l]);
-  }, []);
+    setLog((prev) => [...newLog, ...prev]);
+  };
+  // const onSubmit = useCallback(
+  //   (data: logInput) => {
+  //     const newMsg: IMessage = {
+  //       _id: Date.now().toString(),
+  //       text: data.msg,
+  //       createdAt: new Date(),
+  //       user: { _id: "1", name: "You" },
+  //     };
+  //     const newLog = iMessageToLog(newMsg);
+  //     setLog((l) => [newLog, ...l]);
+  //     reset();
+  //   },
+  //   [reset]
+  // );
 
   const renderBubble = useCallback(
     (props: any) => (
