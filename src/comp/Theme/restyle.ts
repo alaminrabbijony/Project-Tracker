@@ -58,7 +58,7 @@ export const baseTheme = createTheme({
     logPrimary:"#9EBC8A",
     logsSecondary: '#2C3930',
     iconBtn: "black",
-   
+    iconBtnColor: 'black'
     
   },
   spacing: {
@@ -162,7 +162,7 @@ export const darkTheme = createTheme({
     logPrimary: "black",
     logsSecondary: "#9EBC8A",
     iconBtn: "#9EBC8A",
-   
+    iconBtnColor: "white",
   },
 });
 

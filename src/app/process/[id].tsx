@@ -2,13 +2,7 @@ import { Box, Container, TxtBody } from "@/comp/general/RestyleComp";
 import { useTheme } from "@shopify/restyle";
 import React from "react";
 import { StyleSheet } from "react-native";
-
-
 import LogScreen from "@/comp/general/screens/LogScreen";
-
-type formData = {
-  msg: string;
-};
 
 export default function ProcessScreen() {
   const t = useTheme();

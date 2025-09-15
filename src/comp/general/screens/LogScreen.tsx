@@ -3,29 +3,24 @@ import { Log } from "@/types/model";
 import { iMessageToLog, LogToImsg } from "@/util/GiftedTOModelMapper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTheme } from "@shopify/restyle";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet } from "react-native";
-import {
-  Bubble,
-  Composer,
-  GiftedChat,
-  IMessage,
-  InputToolbar,
-  Send,
-} from "react-native-gifted-chat";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
-import { IconBtn } from "../RestyleComp";
+import { GiftedChat, IMessage } from "react-native-gifted-chat";
+import { SafeAreaView } from "react-native-safe-area-context";
+import RenderActions from "../GiftedChatComp/RenderActions";
+import RenderBubble from "../GiftedChatComp/renderBubble";
+import RenderComposer from "../GiftedChatComp/RenderComposer";
+import RenderInputToolBar from "../GiftedChatComp/RenderInputToolBar";
+import RenderSend from "../GiftedChatComp/RenderSend";
 export default function LogScreen() {
   const [log, setLog] = useState<Log[]>([]);
   const t = useTheme();
-  const insets = useSafeAreaInsets();
+  const [err, setErr] = useState<string | null>(null);
+  // const insets = useSafeAreaInsets();
 
   //zod
-  const { control, handleSubmit, reset } = useForm<logInput>({
+  const { reset } = useForm<logInput>({
     resolver: zodResolver(logSchema),
   });
 
@@ -44,21 +39,15 @@ export default function LogScreen() {
   //   ]);
   // }, []);
 
-  // const onSend = useCallback(
-  //   (newMsgs: IMessage[] = []) => {
-  //     const newLog = newMsgs.map(iMessageToLog);
-  //     setLog((l) => [...newLog, ...l]);
-  //     reset();
-  //   },
-  //   [reset]
-  // );
   const onSend = (newMsgs: IMessage[] = []) => {
     const validated = logSchema.safeParse({ msg: newMsgs[0].text });
     if (!validated.success) {
+      setErr(validated.error.issues[0]?.message ?? "Inavalid Log");
+      reset();
       console.warn(validated.error.issues);
-      return; // ❌ reject bad input
+      return;
     }
-
+    setErr(null);
     const newLog = newMsgs.map(iMessageToLog);
     setLog((prev) => [...newLog, ...prev]);
   };
@@ -77,78 +66,6 @@ export default function LogScreen() {
   //   [reset]
   // );
 
-  const renderBubble = useCallback(
-    (props: any) => (
-      <Bubble
-        {...props}
-        wrapperStyle={{
-          right: {
-            backgroundColor: t.colors.logPrimary, // dark background (black here)
-            borderRadius: 10, // rounded edges
-            borderWidth: 2, // border thickness
-            borderColor: t.colors.logsSecondary, // white border
-            padding: 8, // spacing inside
-            marginBottom: 8, // spacing between bubbles
-            // don’t let it stretch across screen
-          },
-          left: {},
-        }}
-        textStyle={{
-          right: {
-            color: t.colors.logsSecondary, // white text
-            fontWeight: "600",
-          },
-          left: {
-            color: "#DDDDDD", // softer gray for received messages
-          },
-        }}
-      />
-    ),
-    [t.colors.logPrimary, t.colors.logsSecondary]
-  );
-  const renderInputToolBar = useCallback(
-    (props: any) => (
-      <InputToolbar
-        {...props}
-        containerStyle={{
-          borderRadius: 16,
-        }}
-        primaryStyle={{
-          alignItems: "center",
-          borderRadius: 16,
-          borderWidth: 1,
-          borderColor: t.colors.logsSecondary,
-          backgroundColor: t.colors.inputBg,
-        }}
-      />
-    ),
-    [t.colors.logsSecondary, t.colors.inputBg]
-  );
-  const renderComposer = useCallback(
-    (props: any) => (
-      <Composer
-        textInputStyle={{
-          color: t.colors.inputColor,
-        }}
-        {...props}
-      />
-    ),
-    [t.colors.inputColor]
-  );
-  const renderSend = useCallback(
-    (props: any) => (
-      <Send {...props} containerStyle={styles.sendContainer}>
-        <IconBtn
-          name="post-add"
-          size={24}
-          color={t.colors.iconBtn}
-          padding="s"
-          borderRadius="m"
-        />
-      </Send>
-    ),
-    [t.colors.iconBtn]
-  );
   return (
     <SafeAreaView
       style={[
@@ -160,12 +77,13 @@ export default function LogScreen() {
       ]}
       edges={["top", "bottom"]}
     >
-      <GiftedChat
-        messages={msges}
-        renderBubble={renderBubble}
-        renderInputToolbar={renderInputToolBar}
-        renderComposer={renderComposer}
-        renderSend={renderSend}
+      <GiftedChat //using (props) => <Render /> for  avoiding GiftedChat sometimes invokes it like a plain function instead of a React component.
+        messages={msges} 
+        renderBubble={(props) => <RenderBubble {...props} />} //Controls message bubble appearance
+        renderInputToolbar={(props) => <RenderInputToolBar {...props} />} //The whole bottom input area.
+        renderComposer={(props) => <RenderComposer {...props} />} //The text input itself.
+        renderSend={(props) => <RenderSend {...props} />} //Customize send button
+        renderActions={(props) => <RenderActions {...props} />}
         onSend={onSend}
         user={{ _id: "1", name: "You" }}
       />
@@ -177,5 +95,4 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  sendContainer: { justifyContent: "center", marginRight: 8 },
 });
