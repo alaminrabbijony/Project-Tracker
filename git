@@ -2,7 +2,7 @@
 git add . 
 
 # Commit with a meaningful message                         
-git commit -m "giftedChat is stable now with bubbles" 
+git commit -m "icon btn is stable; building camera" 
 
 # Push to GitHub 
 git push  
