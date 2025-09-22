@@ -1,3 +1,4 @@
+
 # Stage all changes (or use `git add filename.js` to add specific files)
 git add . 
 
@@ -5,7 +6,7 @@ git add .
 git commit -m "icon btn is stable; building camera" 
 
 # Push to GitHub 
-git push  
+git push
 
 # For new emulator
 npx expo run:android

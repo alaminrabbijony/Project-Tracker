@@ -1,3 +1,4 @@
+import CameraModal from "@/comp/Camera/CameraModal";
 import { useTheme } from "@shopify/restyle";
 import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
@@ -12,7 +13,31 @@ import {
 export default function RenderActions(props: any) {
   const t = useTheme();
   const [visible, setVisible] = useState<boolean>(false);
+  const [cameraOpen, setCameraOpen] = useState<boolean>(false);
   const toggleMenu = () => setVisible(!visible);
+  const {onSend} = props;
+
+  //handling photo from camera
+  // const { onSend } = props; // Extract onSend from props
+   const handlePhoto = (uri: string) => {
+    if (!onSend) {
+      console.warn("⚠️ onSend is not passed into RenderActions");
+      return;
+    }
+
+    onSend?.(
+      [
+        {
+          _id: Date.now().toString(),
+          createdAt: new Date(),
+          user: props.user,
+          image: uri,
+        },
+      ],
+      true // GiftedChat expects this 2nd arg
+    );
+  };
+
 
   return (
     <>
@@ -20,7 +45,7 @@ export default function RenderActions(props: any) {
         {...props}
         containerStyle={styles.actionBtn}
         icon={() => (
-          <FontAwesomeIconBtn name="plus" color={t.colors.iconBtnColor} />
+          <FontAwesomeIconBtn name="plus" color={t.colors.inputColor} />
         )}
         onPressActionButton={toggleMenu}
       />
@@ -28,12 +53,12 @@ export default function RenderActions(props: any) {
         <Box>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => console.log("📷 Take Photo")}
+            onPress={() => setCameraOpen(true)}
           >
             <IoniconsIconBtn
               name="camera"
               size={22}
-              color={t.colors.iconBtnColor}
+              color={t.colors.inputColor}
             />
             <TxtBody style={styles.menuText}>Camera</TxtBody>
           </TouchableOpacity>
@@ -45,7 +70,7 @@ export default function RenderActions(props: any) {
             <IoniconsIconBtn
               name="image"
               size={22}
-              color={t.colors.iconBtnColor}
+              color={t.colors.inputColor}
             />
             <TxtBody style={styles.menuText}>Gallery</TxtBody>
           </TouchableOpacity>
@@ -57,12 +82,19 @@ export default function RenderActions(props: any) {
             <FontAwesomeIconBtn
               name="microphone"
               size={22}
-              color={t.colors.iconBtnColor}
+              color={t.colors.inputColor}
             />
             <TxtBody style={styles.menuText}>Microphone</TxtBody>
           </TouchableOpacity>
         </Box>
       )}
+
+
+      <CameraModal
+        visible={cameraOpen}
+        onClose={() => setCameraOpen(false)}
+        onPhoto={handlePhoto}
+      />
     </>
   );
 }

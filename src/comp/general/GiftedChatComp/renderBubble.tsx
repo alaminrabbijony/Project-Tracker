@@ -1,10 +1,21 @@
-import { StyleSheet} from "react-native";
-import React from "react";
-import { Bubble } from "react-native-gifted-chat";
 import { useTheme } from "@shopify/restyle";
+import React from "react";
+import { Image, StyleSheet } from "react-native";
+import { Bubble } from "react-native-gifted-chat";
+
 
 export default function RenderBubble(props: any) {
   const t = useTheme();
+
+    if (props.currentMessage?.image) {
+    return (
+      <Image
+        source={{ uri: props.currentMessage.image }}
+        style={{ width: 200, height: 200, borderRadius: 10 }}
+      />
+    );
+  }
+
   return (
     <Bubble
       {...props}

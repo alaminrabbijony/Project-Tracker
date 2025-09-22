@@ -14,7 +14,9 @@ export type Process = {
 export type Log = {
     id: string;
     processId: string;
-    msg: string;
+    msg?: string;
+    img?: string;
+    audio?: string;
     createdAt: Date;
     // more needed
 }
