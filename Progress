@@ -1,0 +1,37 @@
+=> Create git inregation = done
+=> used Restyle by shopify for theme
+=> building customize theme with = done
+=> Nav 
+    ->app/
+        ├── _layout.tsx                # Root Stack layout
+        ├── index.tsx                  # Home screen (unfinished projects)
+        ├── (tabs)/                    # Bottom Tab Navigator
+        │   ├── _layout.tsx            # Defines Bottom Tabs
+        │   ├── CreateProject.tsx      # "+ Add" Tab → New Project / Edit Unfinished
+        │   ├── FinProjects.tsx        # Finished Projects tab
+        ├── projects/
+        │   ├── [id].tsx               # Unfinished Project Details
+        │   └── finished/
+        │       └── [id].tsx           # Finished Project Details (read-only)
+        ├── processes/
+        │   └── [processId].tsx        # Process Management screen
+
+=> Implemented theme-based navigation bar using Restyle theme values for colors and spacing
+=> Nav bar adapts to light/dark mode and uses theme palette for active/inactive tab icons
+=> Custom TabBar component created to consume theme and provide consistent styling
+=> Created card for displaying the project overview.
+=> Txt input with zod created for creatingg new project
+
+=> added project details screen with create new btn 
+=> processcard is used for displaying the logs (need more fine tuning)
+=> chatstyle  process screen is beign created for creating and adding logs
+            -> new log screen is being created for the chat scree style
+            -> safe area, flat list and box is being used
+            -> i am using `npm install react-native-keyboard-controller`
+            -> and `npm install react-native-reanimated`
+            -< babel config folder needs to be change
+
+=? didnt worked so i used dev build and implemented
+            -> renderSend
+            -> renderComposer
+            -> renderInputToolBar
