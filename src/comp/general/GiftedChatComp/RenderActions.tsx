@@ -1,7 +1,7 @@
 import CameraModal from "@/comp/Camera/CameraModal";
 import { useTheme } from "@shopify/restyle";
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { Modal, StyleSheet, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-gifted-chat";
 import {
   Box,
@@ -15,11 +15,11 @@ export default function RenderActions(props: any) {
   const [visible, setVisible] = useState<boolean>(false);
   const [cameraOpen, setCameraOpen] = useState<boolean>(false);
   const toggleMenu = () => setVisible(!visible);
-  const {onSend} = props;
+  const { onSend } = props;
 
   //handling photo from camera
   // const { onSend } = props; // Extract onSend from props
-   const handlePhoto = (uri: string) => {
+  const handlePhoto = (uri: string) => {
     if (!onSend) {
       console.warn("⚠️ onSend is not passed into RenderActions");
       return;
@@ -37,7 +37,6 @@ export default function RenderActions(props: any) {
       true // GiftedChat expects this 2nd arg
     );
   };
-
 
   return (
     <>
@@ -89,12 +88,18 @@ export default function RenderActions(props: any) {
         </Box>
       )}
 
-
-      <CameraModal
+      <Modal
         visible={cameraOpen}
-        onClose={() => setCameraOpen(false)}
-        onPhoto={handlePhoto}
-      />
+        animationType="slide"
+        transparent={false}
+        onRequestClose={() => setCameraOpen(false)}
+      >
+        <CameraModal
+          visible={cameraOpen}
+          onClose={() => setCameraOpen(false)}
+          onPhoto={handlePhoto}
+        />
+      </Modal>
     </>
   );
 }

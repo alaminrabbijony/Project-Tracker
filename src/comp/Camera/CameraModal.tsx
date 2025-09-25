@@ -7,10 +7,10 @@ import {
   Linking,
   Platform,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { Camera, useCameraDevice } from "react-native-vision-camera";
-import { Box, TxtBody, TxtTitle } from "../general/RestyleComp";
+import { Box, IoniconsIconBtn, TxtTitle } from "../general/RestyleComp";
 type Props = {
   visible: boolean;
   onClose: () => void;
@@ -49,14 +49,13 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
     );
   }
 
- if (!device) {
-  return (
-    <Box style={styles.center}>
-      <TxtTitle>No camera available on this emulator</TxtTitle>
-    </Box>
-  );
-}
-
+  if (!device) {
+    return (
+      <Box style={styles.center}>
+        <TxtTitle>No camera available on this emulator</TxtTitle>
+      </Box>
+    );
+  }
 
   const takePhoto = async () => {
     if (!cameraRef.current || busy) return;
@@ -99,7 +98,7 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
   };
 
   return (
-    <Box style={[styles.container]}>
+    <Box style={[styles.container, { flex: 1 }]}>
       <Camera
         ref={cameraRef}
         style={StyleSheet.absoluteFill}
@@ -110,14 +109,14 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
 
       <Box style={[styles.controls]}>
         <TouchableOpacity style={[styles.shutter]} onPress={takePhoto}>
+          <TouchableOpacity style={[styles.closeBtn]} onPress={onClose}>
+            <IoniconsIconBtn name="close" color="red" size={48} />
+          </TouchableOpacity>
           {busy ? (
             <ActivityIndicator color="black" />
           ) : (
             <Box style={[styles.dot]} />
           )}
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.closeBtn]} onPress={onClose}>
-          <TxtBody style={{ color: "white", fontSize: 18 }}>Close</TxtBody>
         </TouchableOpacity>
       </Box>
     </Box>
@@ -141,6 +140,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  dot: { width: 48, height: 48, borderRadius: 24, backgroundColor: "#000" },
-  closeBtn: { position: "absolute", left: 16, bottom: 36 },
+  dot: { width: 48, height: 48, borderRadius: 24, backgroundColor: "red" },
+  closeBtn: { position: "absolute", top: -620, right: -130 },
 });

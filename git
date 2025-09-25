@@ -22,3 +22,14 @@ eas --version
 eas whoami
 # if not login
 eas login
+
+# if fails 
+Remove-Item -Recurse -Force .git
+git init
+git add .
+git commit -m "reset for eas build"
+# to build the app
+eas build -p android --profile development
+
+# dor using insalled app in device
+npx expo start --dev-client
