@@ -1,3 +1,4 @@
+import { useTheme } from "@shopify/restyle";
 import * as FileSystem from "expo-file-system";
 import * as ImageManipulator from "expo-image-manipulator";
 import * as MediaLibrary from "expo-media-library";
@@ -9,12 +10,21 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Camera, useCameraDevice } from "react-native-vision-camera";
 import { Box, IoniconsIconBtn, TxtTitle } from "../general/RestyleComp";
+import PreviewImg from "./PreviewImg";
+
+
+type capturePhoto = {
+  uri: string;
+  caption?: string;
+}; // mimic Log.img. non nullable is used for matching same structure in the types
+
 type Props = {
   visible: boolean;
   onClose: () => void;
-  onPhoto: (uri: string) => void;
+  onPhoto: (photo: string, caption?: string) => void;
 };
 
 export default function CameraModal({ visible, onClose, onPhoto }: Props) {
@@ -24,6 +34,11 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
   const [busy, setBusy] = useState(false);
   const [flash, setFlash] = useState<"on" | "off" | "auto">("off");
 
+  const [previewUri, setPreviewUri] = useState<string | null>(null);
+  const [caption, setCaption] = useState<string>("");
+  const insets = useSafeAreaInsets();
+
+  const t = useTheme();
   useEffect(() => {
     (async () => {
       const status = await Camera.getCameraPermissionStatus();
@@ -86,9 +101,12 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
         }
       }
 
+      // preview
+      setPreviewUri(manipulated.uri);
+
       // return photo uri to parent
-      onPhoto(manipulated.uri);
-      onClose();
+      //onPhoto(manipulated.uri); // remove for preview
+
       await FileSystem.deleteAsync(rawUri, { idempotent: true });
     } catch (error) {
       console.error(error);
@@ -96,6 +114,19 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
       setBusy(false);
     }
   };
+  if (previewUri) {
+    return (
+      <PreviewImg
+        caption={caption}
+        setCaption={setCaption}
+        onPhoto={onPhoto}
+        onClose={onClose}
+        previewUri={previewUri}
+        setPreviewUri={setPreviewUri}
+        isEdit={true}
+      />
+    );
+  }
 
   return (
     <Box style={[styles.container, { flex: 1 }]}>
@@ -107,11 +138,21 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
         photo={true}
       />
 
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          top: insets.top + 12,
+          right: 16,
+          padding: 8,
+          zIndex: 10,
+        }}
+        onPress={onClose}
+      >
+        <IoniconsIconBtn name="close" color="red" size={48} />
+      </TouchableOpacity>
+
       <Box style={[styles.controls]}>
         <TouchableOpacity style={[styles.shutter]} onPress={takePhoto}>
-          <TouchableOpacity style={[styles.closeBtn]} onPress={onClose}>
-            <IoniconsIconBtn name="close" color="red" size={48} />
-          </TouchableOpacity>
           {busy ? (
             <ActivityIndicator color="black" />
           ) : (
@@ -141,5 +182,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   dot: { width: 48, height: 48, borderRadius: 24, backgroundColor: "red" },
-  closeBtn: { position: "absolute", top: -620, right: -130 },
 });

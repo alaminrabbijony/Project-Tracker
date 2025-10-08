@@ -14,5 +14,7 @@ export type DBLog = {
     id: string;
     processId: string;
     msg: string;
+    img: {uri: string, caption?: string} | null;
+    audio: string | null;
     // more needed
 }

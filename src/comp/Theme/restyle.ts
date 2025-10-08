@@ -160,7 +160,7 @@ export const darkTheme = createTheme({
     chatInput: "#3F4F44",
     chatInputColor: 'white',
     logPrimary: "black",
-    logsSecondary: "#9EBC8A",
+    logsSecondary: "white",
     iconBtn: "#9EBC8A",
     iconBtnColor: "white",
   },

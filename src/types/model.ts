@@ -15,7 +15,7 @@ export type Log = {
     id: string;
     processId: string;
     msg?: string;
-    img?: string;
+    img?: {uri: string, caption?: string};
     audio?: string;
     createdAt: Date;
     // more needed

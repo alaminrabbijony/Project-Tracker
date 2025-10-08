@@ -24,6 +24,8 @@ export default function LogScreen() {
     resolver: zodResolver(logSchema),
   });
 
+  // const currentProcessId = will come from global state or props
+
   const msges: IMessage[] = log.map(LogToImsg);
 
   //Prebuild data
@@ -56,6 +58,9 @@ export default function LogScreen() {
     }
     setErr(null);   
     const newLog = newMsgs.map(iMessageToLog);
+    // after getting the curr process id from global state or props
+    // const newLog = newMsgs.map((m) => iMessageToLog(m, currentProcessId));
+
     setLog((prev) => [...newLog, ...prev]);
   };
   // const onSubmit = useCallback(

@@ -19,9 +19,10 @@ export default function RenderActions(props: any) {
 
   //handling photo from camera
   // const { onSend } = props; // Extract onSend from props
-  const handlePhoto = (uri: string) => {
+
+  const handlePhoto = (uri: string, caption?: string) => {
     if (!onSend) {
-      console.warn("⚠️ onSend is not passed into RenderActions");
+      console.warn(" onSend is not passed into RenderActions");
       return;
     }
 
@@ -32,6 +33,7 @@ export default function RenderActions(props: any) {
           createdAt: new Date(),
           user: props.user,
           image: uri,
+          text: caption,
         },
       ],
       true // GiftedChat expects this 2nd arg
@@ -58,6 +60,10 @@ export default function RenderActions(props: any) {
               name="camera"
               size={22}
               color={t.colors.inputColor}
+              onPress={() => {
+                setCameraOpen(true)
+                setVisible(false);
+              }}
             />
             <TxtBody style={styles.menuText}>Camera</TxtBody>
           </TouchableOpacity>

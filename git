@@ -1,0 +1,4 @@
+
+
+# app in phone start
+npx expo start --dev-client
