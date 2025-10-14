@@ -24,7 +24,7 @@ export default function RenderBubble(props: any) {
         {currentMessage?.text ? (
           <Box
             style={{
-              backgroundColor: t.colors.logPrimary,
+              backgroundColor: t.colors.inputToolBarBg,
               padding: 5,
               alignItems: "center",
               borderRadius: 12,
@@ -70,7 +70,7 @@ export default function RenderBubble(props: any) {
       {...props}
       wrapperStyle={{
         right: {
-          backgroundColor: t.colors.logPrimary,
+          backgroundColor: t.colors.inputToolBarBg,
           borderRadius: 10,
           borderWidth: 2,
           borderColor: t.colors.logsSecondary,
@@ -82,7 +82,7 @@ export default function RenderBubble(props: any) {
           alignSelf: "flex-end",
         },
         left: {
-          backgroundColor: t.colors.logsSecondary,
+          backgroundColor: t.colors.inputToolBarBg,
           borderRadius: 10,
           borderWidth: 2,
           borderColor: t.colors.logPrimary,

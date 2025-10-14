@@ -17,12 +17,8 @@ export default function Card() {
         Process: Latest Process
       </TxtBody>
 
-      <Container
-        style={[styles.logContainer, { backgroundColor: theme.colors.logBg }]}
-      >
-        <TxtBody style={[styles.logHeading, { color: theme.colors.logTxt }]}>
-          Log
-        </TxtBody>
+      <Container style={[styles.logContainer, { backgroundColor: theme.colors.logBg }]}>
+        <TxtBody style={[styles.logHeading, { color: theme.colors.logTxt }]}>Log</TxtBody>
         <TxtBody style={[styles.logTxt, { color: theme.colors.logTxt }]}>
           This is the last log for the Project name Something which is nothing
         </TxtBody>

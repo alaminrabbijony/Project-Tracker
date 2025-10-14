@@ -1,14 +1,10 @@
+import AudioRecoder from "@/comp/Audio/AudioRecoder";
 import CameraModal from "@/comp/Camera/CameraModal";
 import { useTheme } from "@shopify/restyle";
 import React, { useState } from "react";
 import { Modal, StyleSheet, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-gifted-chat";
-import {
-  Box,
-  FontAwesomeIconBtn,
-  IoniconsIconBtn,
-  TxtBody,
-} from "../RestyleComp";
+import { Box, FontAwesomeIconBtn, IoniconsIconBtn, TxtBody } from "../RestyleComp";
 
 export default function RenderActions(props: any) {
   const t = useTheme();
@@ -45,52 +41,51 @@ export default function RenderActions(props: any) {
       <Actions
         {...props}
         containerStyle={styles.actionBtn}
-        icon={() => (
-          <FontAwesomeIconBtn name="plus" color={t.colors.inputColor} />
-        )}
+        icon={() => <FontAwesomeIconBtn name="plus" color={t.colors.inputColor} />}
         onPressActionButton={toggleMenu}
       />
       {visible && (
         <Box>
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => setCameraOpen(true)}
-          >
+          <TouchableOpacity style={styles.menuItem} onPress={() => setCameraOpen(true)}>
             <IoniconsIconBtn
               name="camera"
               size={22}
               color={t.colors.inputColor}
               onPress={() => {
-                setCameraOpen(true)
+                setCameraOpen(true);
                 setVisible(false);
               }}
             />
-            <TxtBody style={styles.menuText}>Camera</TxtBody>
+            <TxtBody
+              style={[
+                styles.menuText,
+                {
+                  color: t.colors.inputToolBarBorder,
+                },
+              ]}
+            >
+              Camera
+            </TxtBody>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.menuItem}
             onPress={() => console.log("🖼 Pick Image")}
           >
-            <IoniconsIconBtn
-              name="image"
-              size={22}
-              color={t.colors.inputColor}
-            />
-            <TxtBody style={styles.menuText}>Gallery</TxtBody>
+            <IoniconsIconBtn name="image" size={22} color={t.colors.inputColor} />
+            <TxtBody
+              style={[
+                styles.menuText,
+                {
+                  color: t.colors.inputToolBarBorder,
+                },
+              ]}
+            >
+              Gallery
+            </TxtBody>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => console.log("📍 Location")}
-          >
-            <FontAwesomeIconBtn
-              name="microphone"
-              size={22}
-              color={t.colors.inputColor}
-            />
-            <TxtBody style={styles.menuText}>Microphone</TxtBody>
-          </TouchableOpacity>
+          {/* Audio Recorder Component  */}
+          <AudioRecoder />
         </Box>
       )}
 
@@ -136,6 +131,5 @@ const styles = StyleSheet.create({
   menuText: {
     marginLeft: 8,
     fontSize: 16,
-    color: "#333",
   },
 });

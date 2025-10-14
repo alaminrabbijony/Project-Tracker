@@ -2,3 +2,12 @@
 
 # app in phone start
 npx expo start --dev-client
+
+#   add
+git add .
+git commit -m 'camera is done but buble prblm not solved'
+git push
+
+#remove modules
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Recurse -Force .expo, .expo-shared, dist, .cache -ErrorAction SilentlyContinue

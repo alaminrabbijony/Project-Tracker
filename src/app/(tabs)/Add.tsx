@@ -48,11 +48,11 @@ export default function Add() {
     <Container style={[styles.root]}>
       <View style={styles.closeBtn}>
         <Fontisto
-        name="close-a"
-        size={32}
-        color={t.colors.headerTint}
-        onPress={() => router.back()}
-      />
+          name="close-a"
+          size={32}
+          color={t.colors.headerTint}
+          onPress={() => router.back()}
+        />
       </View>
       <Container style={styles.form}>
         <TxtTitle style={styles.title}>Project Name</TxtTitle>
@@ -89,9 +89,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   closeBtn: {
-   alignItems: "flex-end",
-   width: "100%",
-   padding: 10,
+    alignItems: "flex-end",
+    width: "100%",
+    padding: 10,
   },
   form: {
     width: "100%",

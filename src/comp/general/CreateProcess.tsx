@@ -1,11 +1,6 @@
 import { useTheme } from "@shopify/restyle";
 import React, { ComponentProps } from "react";
-import {
-  Pressable,
-  StyleProp,
-  StyleSheet,
-  ViewStyle
-} from "react-native";
+import { Pressable, StyleProp, StyleSheet, ViewStyle } from "react-native";
 import { TxtBody } from "./RestyleComp";
 
 type CreateProcessProps = {
@@ -22,11 +17,12 @@ export default function CreateProcessBtn({
   return (
     <Pressable
       {...pressableProps}
-      style={({ pressed }) => 
+      style={({ pressed }) =>
         pressed
           ? [
               styles.btn,
-              { backgroundColor: t.colors.pressedCpBg, 
+              {
+                backgroundColor: t.colors.pressedCpBg,
                 opacity: 0.9,
                 borderColor: t.colors.psBorder,
                 borderTopWidth: 1,
@@ -36,16 +32,17 @@ export default function CreateProcessBtn({
             ]
           : [
               styles.btn,
-              { backgroundColor: t.colors.createProcessBtnBg,
+              {
+                backgroundColor: t.colors.createProcessBtnBg,
                 borderColor: t.colors.psBorder,
                 borderTopWidth: 1,
                 borderBottomWidth: 1,
-               },
+              },
               style,
             ]
       }
     >
-      <TxtBody style= {styles.txt}>{children}</TxtBody>
+      <TxtBody style={styles.txt}>{children}</TxtBody>
     </Pressable>
   );
 }
@@ -53,12 +50,12 @@ export default function CreateProcessBtn({
 const styles = StyleSheet.create({
   btn: {
     padding: 12,
-    width: '100%',
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
   txt: {
     fontSize: 18,
     fontWeight: "bold",
-  }
+  },
 });

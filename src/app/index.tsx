@@ -2,13 +2,13 @@ import { router } from "expo-router";
 import { useEffect } from "react";
 
 export default function HomeScreen() {
-  useEffect(()=> {
+  useEffect(() => {
     setTimeout(() => {
-      router.replace('/process/[id]');
+      router.replace("/process/[id]");
       //router.replace('/(tabs)');
     }, 0);
-  },[])
-  return null
+  }, []);
+  return null;
 
   // return(
   //   <ChatScreen/>

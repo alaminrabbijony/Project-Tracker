@@ -29,9 +29,7 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Ionicons name="home" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -39,9 +37,7 @@ export default function TabsLayout() {
         options={{
           title: "Add",
           headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <FontAwesome6 name="add" size={24} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <FontAwesome6 name="add" size={24} color={color} />,
         }}
       />
       <Tabs.Screen

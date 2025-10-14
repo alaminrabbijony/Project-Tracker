@@ -42,7 +42,13 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "react-native-vision-camera"
+      "react-native-vision-camera",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
@@ -52,6 +58,7 @@
       "eas": {
         "projectId": "7ad06e02-65e7-43dc-9137-f1eab86fbbd3"
       }
-    }
+    },
+    "owner": "2007025rabbi"
   }
 }

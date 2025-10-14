@@ -4,8 +4,8 @@ import Btn from "../Btn";
 import { Container, TxtBody, TxtTitle } from "../RestyleComp";
 
 type ProcessScreenProps = {
-    name: string;
-}
+  name: string;
+};
 
 export default function ProcessScreen({ name }: ProcessScreenProps) {
   return (
@@ -13,12 +13,12 @@ export default function ProcessScreen({ name }: ProcessScreenProps) {
       <Container style={[styles.headerContainer]}>
         <TxtTitle style={styles.pTxt}>{name}</TxtTitle>
         <TxtBody>Date: 21/07/2025</TxtBody>
-        <Btn >Add Process</Btn>
+        <Btn>Add Process</Btn>
       </Container>
       <Container style={styles.bodyContainer}>
         <TxtBody>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut
         </TxtBody>
       </Container>
     </>
@@ -32,10 +32,9 @@ const styles = StyleSheet.create({
     borderWidth: 5,
   },
   bodyContainer: {
-    backgroundColor: 'black'
+    backgroundColor: "black",
   },
   pTxt: {
     fontSize: 36,
-    
   },
 });

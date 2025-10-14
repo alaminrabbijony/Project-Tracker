@@ -1,11 +1,5 @@
 import React, { JSX, useCallback, useEffect, useMemo, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   GiftedChat,
@@ -72,7 +66,7 @@ export default function LogScreen(): JSX.Element {
 
   /* ---------------- Custom renderers ---------------- */
 
-  const renderBubble = useCallback((props:any) => {
+  const renderBubble = useCallback((props: any) => {
     return (
       <Bubble
         {...props}
@@ -88,7 +82,7 @@ export default function LogScreen(): JSX.Element {
     );
   }, []);
 
-  const renderInputToolbar = useCallback((props:any) => {
+  const renderInputToolbar = useCallback((props: any) => {
     return (
       <InputToolbar
         {...props}
@@ -98,7 +92,7 @@ export default function LogScreen(): JSX.Element {
     );
   }, []);
 
-  const renderComposer = useCallback((props:any) => {
+  const renderComposer = useCallback((props: any) => {
     return (
       <Composer
         {...props}
@@ -108,7 +102,7 @@ export default function LogScreen(): JSX.Element {
     );
   }, []);
 
-  const renderSend = useCallback((props:any) => {
+  const renderSend = useCallback((props: any) => {
     return (
       <Send {...props} containerStyle={styles.sendContainer}>
         <View style={styles.sendButton}>
@@ -119,7 +113,7 @@ export default function LogScreen(): JSX.Element {
   }, []);
 
   // Attachment button (requires expo-image-picker or similar)
-  const handlePickImage = useCallback(async (callback:any) => {
+  const handlePickImage = useCallback(async (callback: any) => {
     const res = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 0.8,
@@ -136,7 +130,7 @@ export default function LogScreen(): JSX.Element {
   }, []);
 
   const renderActions = useCallback(
-    (props:any) => {
+    (props: any) => {
       return (
         <Actions
           {...props}
@@ -153,7 +147,7 @@ export default function LogScreen(): JSX.Element {
   );
 
   const renderMessageImage = useCallback(
-    (props:any) => <MessageImage {...props} imageStyle={styles.messageImage} />,
+    (props: any) => <MessageImage {...props} imageStyle={styles.messageImage} />,
     []
   );
 

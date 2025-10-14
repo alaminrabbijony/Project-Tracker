@@ -45,9 +45,13 @@ export default function ProcessScreen() {
 
       {/* Log */}
 
-      <Box style={[{
-        flex:8,
-      }]}>
+      <Box
+        style={[
+          {
+            flex: 8,
+          },
+        ]}
+      >
         <LogScreen />
       </Box>
     </Box>

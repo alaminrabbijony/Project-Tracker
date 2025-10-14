@@ -8,13 +8,15 @@ import { StyleSheet } from "react-native";
 export default function Layout() {
   const theme = useTheme();
   return (
-    <Stack screenOptions={{ 
-      headerShown: true,
-      headerStyle: {
+    <Stack
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
           backgroundColor: theme.colors.navBg,
         },
         headerTintColor: theme.colors.headerTint,
-     }}>
+      }}
+    >
       <Stack.Screen
         name="[id]"
         options={{
@@ -23,7 +25,7 @@ export default function Layout() {
               onPress={() => router.replace("/")}
               name="chevron-back"
               size={32}
-              color= {theme.colors.headerTint}
+              color={theme.colors.headerTint}
             />
           ),
         }}

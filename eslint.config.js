@@ -1,21 +1,31 @@
 // eslint.config.js
-const { defineConfig } = require('eslint/config');
-const expoConfig = require('eslint-config-expo/flat');
+import prettierPlugin from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
+import { defineConfig } from "eslint/config";
+import expoConfig from "eslint-config-expo/flat.js"; // ✅ FIXED (added .js)
 
-module.exports = defineConfig([
+export default defineConfig([
   ...expoConfig,
+
   {
-    ignores: ['dist/*'],
+    ignores: ["dist/*"],
+
     settings: {
-      'import/resolver': {
+      "import/resolver": {
         typescript: {
-          project: './tsconfig.json',
+          project: "./tsconfig.json",
         },
       },
     },
+
+    plugins: {
+      prettier: prettierPlugin,
+    },
+
     rules: {
-      // optional: silence if still failing with unresolved until cache clears
-      'import/no-unresolved': 'error',
+      ...prettierConfig.rules,
+      "prettier/prettier": "warn",
+      "import/no-unresolved": "error",
     },
   },
 ]);

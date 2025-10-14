@@ -37,12 +37,7 @@ export default function PreviewImg({
         source={{ uri: previewUri || undefined }}
         style={{ flex: 1, resizeMode: "contain" }}
       />
-      {isEdit &&
-      setCaption &&
-      onPhoto &&
-      onClose &&
-      previewUri &&
-      setPreviewUri ? (
+      {isEdit && setCaption && onPhoto && onClose && previewUri && setPreviewUri ? (
         <Caption
           caption={caption ?? ""}
           setCaption={setCaption}

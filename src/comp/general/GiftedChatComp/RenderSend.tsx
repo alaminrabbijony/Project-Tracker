@@ -11,7 +11,8 @@ export default function RenderSend(props: any) {
       <IconBtn
         name="post-add"
         size={24}
-        color={t.colors.iconBtn}
+        color={t.colors.inputToolBarBorder}
+        //color='white'
         padding="s"
         borderRadius="m"
       />

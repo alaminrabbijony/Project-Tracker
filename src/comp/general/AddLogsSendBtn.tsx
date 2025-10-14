@@ -73,11 +73,7 @@ export default function LogsSendBtn({
           borderWidth: 1,
         }}
       >
-        <FontAwesome5
-          name="clipboard-list"
-          size={24}
-          color={theme.colors.logsInner}
-        />
+        <FontAwesome5 name="clipboard-list" size={24} color={theme.colors.logsInner} />
       </TouchableOpacity>
     </Box>
   );

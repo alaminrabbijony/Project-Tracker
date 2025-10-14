@@ -2,31 +2,31 @@ export type Task = {
   id: string;
   name: string;
   createdAt: Date;
-  finishedAt: Date | null ;
+  finishedAt: Date | null;
 };
 
 export type Process = {
-    id: string;
-    taskId: string;
-    name: string;
-}
+  id: string;
+  taskId: string;
+  name: string;
+};
 
 export type Log = {
-    id: string;
-    processId: string;
-    msg?: string;
-    img?: {uri: string, caption?: string};
-    audio?: string;
-    createdAt: Date;
-    // more needed
-}
+  id: string;
+  processId: string;
+  msg?: string;
+  img?: { uri: string; caption?: string };
+  audio?: string;
+  createdAt: Date;
+  // more needed
+};
 
 // Nested Structures
 
 export type TaskWithProgress = {
-    processes: Process[];
-}
+  processes: Process[];
+};
 
 export type ProcessWithLog = {
-    logs: Log[]
-}
+  logs: Log[];
+};

@@ -21,7 +21,7 @@ export default function CaptionPreview({ msg }: Props) {
         borderWidth: 2,
         alignItems: "center",
         justifyContent: "center",
-        marginHorizontal: 8
+        marginHorizontal: 8,
       }}
     >
       <TxtBody

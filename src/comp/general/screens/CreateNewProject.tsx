@@ -13,13 +13,9 @@ type Props = {
   handleSubmit: (data: any) => void;
 };
 
-export default function CreateNewProject({
-  isVisible,
-  control,
-  handleSubmit,
-}: Props) {
+export default function CreateNewProject({ isVisible, control, handleSubmit }: Props) {
   const headerHeight = useHeaderHeight();
-  const colors = useTheme(); 
+  const colors = useTheme();
   return (
     <BottomTabBarHeightContext.Consumer>
       {(tabBarHeight) =>
@@ -33,10 +29,10 @@ export default function CreateNewProject({
               },
             ]}
           >
-            <Container style={[styles.modalContent,{backgroundColor: colors.modalBgColor}]}>
-              <TxtTitle
-                style={{ justifyContent: "center", alignItems: "center" }}
-              >
+            <Container
+              style={[styles.modalContent, { backgroundColor: colors.modalBgColor }]}
+            >
+              <TxtTitle style={{ justifyContent: "center", alignItems: "center" }}>
                 Project Name
               </TxtTitle>
               <CustomeTxtInput
@@ -64,8 +60,8 @@ const styles = StyleSheet.create({
   modalContent: {
     height: "100%",
     padding: 20,
-   // backgroundColor: Color.bg200,
-   // justifyContent: "center",
+    // backgroundColor: Color.bg200,
+    // justifyContent: "center",
     borderWidth: 5,
   },
 });

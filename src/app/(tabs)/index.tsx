@@ -7,9 +7,7 @@ import { StyleSheet } from "react-native";
 export default function Index() {
   const theme = useTheme();
   return (
-    <Container
-      style={[styles.root, { backgroundColor: theme.colors.background }]}
-    >
+    <Container style={[styles.root, { backgroundColor: theme.colors.background }]}>
       <ScrollView>
         <Card />
         <Card />

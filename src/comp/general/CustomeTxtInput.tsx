@@ -1,12 +1,7 @@
 import { useTheme } from "@shopify/restyle";
 import React, { ComponentProps } from "react";
 import { useController } from "react-hook-form";
-import {
-  StyleProp,
-  StyleSheet,
-  TextInput,
-  ViewStyle
-} from "react-native";
+import { StyleProp, StyleSheet, TextInput, ViewStyle } from "react-native";
 
 type CustomeTxtInputProps = {
   label?: string;
@@ -37,21 +32,21 @@ export default function CustomeTxtInput({
     // <Container style={[containerStyle, {}]}>
     //   {label && <TxtBody>{label}</TxtBody>}
 
-      <TextInput
-        {...textInputProps}
-        onChangeText={onChange}
-        onBlur={onBlur}
-        value={value}
-        style={[
-          styles.input,
-          {
-            backgroundColor: t.colors.inputBg,
-            borderColor: t.colors.inputBorder,
-            color: t.colors.inputColor,
-          },
-          textInputProps.style,
-        ]}
-      />
+    <TextInput
+      {...textInputProps}
+      onChangeText={onChange}
+      onBlur={onBlur}
+      value={value}
+      style={[
+        styles.input,
+        {
+          backgroundColor: t.colors.inputBg,
+          borderColor: t.colors.inputBorder,
+          color: t.colors.inputColor,
+        },
+        textInputProps.style,
+      ]}
+    />
     // </Container>
   );
 }

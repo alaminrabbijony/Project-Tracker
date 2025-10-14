@@ -15,11 +15,7 @@ type props = {
   style?: StyleProp<ViewStyle>;
 };
 
-export default function KeyBoardAvoidingScrollView({
-  children,
-  footer,
-  style,
-}: props) {
+export default function KeyBoardAvoidingScrollView({ children, footer, style }: props) {
   return (
     <KeyboardAvoidingView
       style={[styles.container, style]}

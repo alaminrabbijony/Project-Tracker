@@ -42,13 +42,12 @@ export default function LogScreen() {
   // }, []);
 
   const onSend = (newMsgs: IMessage[] = []) => {
-    
     const dataToValidate = {
       msg: newMsgs[0]?.text,
       img: newMsgs[0]?.image,
       audio: (newMsgs[0] as any).audio,
     };
-    
+
     const validate = logSchema.safeParse(dataToValidate);
     if (!validate.success) {
       setErr(validate.error.issues[0]?.message ?? "Inavalid Log");
@@ -56,7 +55,7 @@ export default function LogScreen() {
       console.warn(validate.error.issues);
       return;
     }
-    setErr(null);   
+    setErr(null);
     const newLog = newMsgs.map(iMessageToLog);
     // after getting the curr process id from global state or props
     // const newLog = newMsgs.map((m) => iMessageToLog(m, currentProcessId));
@@ -90,7 +89,7 @@ export default function LogScreen() {
       edges={["top", "bottom"]}
     >
       <GiftedChat //using (props) => <Render /> for  avoiding GiftedChat sometimes invokes it like a plain function instead of a React component.
-        messages={msges} 
+        messages={msges}
         renderBubble={(props) => <RenderBubble {...props} />} //Controls message bubble appearance
         renderInputToolbar={(props) => <RenderInputToolBar {...props} />} //The whole bottom input area.
         renderComposer={(props) => <RenderComposer {...props} />} //The text input itself.

@@ -3,7 +3,7 @@ import * as z from "zod";
 const name = z.string().min(1, "Name required").max(50, "Too long");
 const msg = z.string().min(1, "Name required").max(125, "Too long").optional();
 const img = z.string().url().optional();
-const audio = z.string().optional()
+const audio = z.string().optional();
 
 export const taskSchema = z.object({
   taskName: name,

@@ -1,7 +1,7 @@
-import { StyleSheet} from "react-native";
-import React from "react";
-import { InputToolbar } from "react-native-gifted-chat";
 import { useTheme } from "@shopify/restyle";
+import React from "react";
+import { StyleSheet } from "react-native";
+import { InputToolbar } from "react-native-gifted-chat";
 
 export default function RenderInputToolBar(props: any) {
   const t = useTheme();
@@ -13,10 +13,13 @@ export default function RenderInputToolBar(props: any) {
       }}
       primaryStyle={{
         alignItems: "center",
-        borderRadius: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: t.colors.inputToolBarBorder,
+        borderTopWidth: 1,
+        borderTopColor: t.colors.inputToolBarBorder,
         borderWidth: 1,
-        borderColor: t.colors.logsSecondary,
-        backgroundColor: t.colors.background,
+        //borderColor: t.colors.inputToolBarBorder,
+        backgroundColor: t.colors.inputToolBarBg,
         opacity: 1,
       }}
     />

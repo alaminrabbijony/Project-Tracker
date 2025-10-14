@@ -1,4 +1,4 @@
-Excellent question 💪 — and honestly, this is *the* concept that once you get it, everything about data mapping (and Gifted Chat) becomes super easy.
+Excellent question 💪 — and honestly, this is _the_ concept that once you get it, everything about data mapping (and Gifted Chat) becomes super easy.
 
 Let’s go step-by-step in **plain language** — no jargon.
 
@@ -40,15 +40,16 @@ Think of it like:
 ```ts
 export function LogToImsg(log: Log): IMessage {
   return {
-    _id: log.id,                         // Gifted Chat's unique message id
-    text: log.msg ?? "",                 // Message text (if exists)
-    createdAt: new Date(log.createdAt),  // Ensure it's a Date
-    user: {                              // Gifted Chat expects a `user` object
-      _id: log.processId,                // Who sent it
-      name: `User ${log.processId}`,     // Optional display name
+    _id: log.id, // Gifted Chat's unique message id
+    text: log.msg ?? "", // Message text (if exists)
+    createdAt: new Date(log.createdAt), // Ensure it's a Date
+    user: {
+      // Gifted Chat expects a `user` object
+      _id: log.processId, // Who sent it
+      name: `User ${log.processId}`, // Optional display name
     },
-    image: log.img?.uri,                 // If there’s an image
-    audio: log.audio,                    // If there’s an audio file
+    image: log.img?.uri, // If there’s an image
+    audio: log.audio, // If there’s an audio file
   };
 }
 ```
@@ -73,14 +74,12 @@ Think of it like:
 ```ts
 export function iMessageToLog(msg: IMessage): Log {
   return {
-    id: String(msg._id),                 // Convert `_id` → `id`
-    processId: String(msg.user._id),     // Sender ID (process)
-    createdAt: new Date(msg.createdAt),  // Timestamp
-    msg: msg.text || undefined,          // Message text
-    img: msg.image
-      ? { uri: msg.image, caption: msg.text || undefined }
-      : undefined,
-    audio: msg.audio,                    // Optional audio file
+    id: String(msg._id), // Convert `_id` → `id`
+    processId: String(msg.user._id), // Sender ID (process)
+    createdAt: new Date(msg.createdAt), // Timestamp
+    msg: msg.text || undefined, // Message text
+    img: msg.image ? { uri: msg.image, caption: msg.text || undefined } : undefined,
+    audio: msg.audio, // Optional audio file
   };
 }
 ```
@@ -130,9 +129,9 @@ and so on.
 Just invert it:
 
 ```ts
-id: msg._id
-msg: msg.text
-processId: msg.user._id
+id: msg._id;
+msg: msg.text;
+processId: msg.user._id;
 ```
 
 That’s literally it.
@@ -162,13 +161,13 @@ system: false,
 or store your `isEdited` info like:
 
 ```ts
-text: log.msg + (log.isEdited ? " (edited)" : "")
+text: log.msg + (log.isEdited ? " (edited)" : "");
 ```
 
 **`iMessageToLog`:**
 
 ```ts
-isEdited: msg.text?.includes("(edited)") ?? false
+isEdited: msg.text?.includes("(edited)") ?? false;
 ```
 
 You’re just mapping your new fields wherever they make sense.
@@ -195,8 +194,8 @@ Database (Log)
 ```
 
 **Rule of thumb:**
-➡ “LogToImsg” = *DB → UI*
-⬅ “iMessageToLog” = *UI → DB*
+➡ “LogToImsg” = _DB → UI_
+⬅ “iMessageToLog” = _UI → DB_
 
 ---
 

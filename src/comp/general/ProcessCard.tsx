@@ -14,10 +14,15 @@ export default function ProcessCard() {
       ]}
     >
       {/* Left side border */}
-      <View style={[styles.sideBorder, {
-         borderColor: t.colors.pscSideBorder,
-          backgroundColor: t.colors.pscSideBorderBg,
-      }]} />
+      <View
+        style={[
+          styles.sideBorder,
+          {
+            borderColor: t.colors.pscSideBorder,
+            backgroundColor: t.colors.pscSideBorderBg,
+          },
+        ]}
+      />
 
       {/* Inner Card */}
       <Container
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
   sideBorder: {
     width: 4,
     borderWidth: 1,
-   
+
     borderRadius: 1,
     // blue side border
     marginRight: 10,

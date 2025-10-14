@@ -10,10 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ChatScreen() {
   const scrollRef = useRef<ScrollView>(null);
@@ -73,9 +70,7 @@ export default function ChatScreen() {
               key={m.id}
               style={[
                 styles.messageBubble,
-                m.type === "in"
-                  ? styles.messageIncoming
-                  : styles.messageOutgoing,
+                m.type === "in" ? styles.messageIncoming : styles.messageOutgoing,
               ]}
             >
               <Text>{m.text}</Text>

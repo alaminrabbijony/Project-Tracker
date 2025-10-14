@@ -15,7 +15,6 @@ import { Camera, useCameraDevice } from "react-native-vision-camera";
 import { Box, IoniconsIconBtn, TxtTitle } from "../general/RestyleComp";
 import PreviewImg from "./PreviewImg";
 
-
 type capturePhoto = {
   uri: string;
   caption?: string;
@@ -54,9 +53,7 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
   if (hasPermission === false) {
     return (
       <Box>
-        <TxtTitle>
-          Camera permission denied. Please enable it in settings.
-        </TxtTitle>
+        <TxtTitle>Camera permission denied. Please enable it in settings.</TxtTitle>
         <TouchableOpacity onPress={() => Linking.openSettings?.()}>
           <TxtTitle>Open Settings</TxtTitle>
         </TouchableOpacity>
@@ -81,8 +78,7 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
         enableShutterSound: false,
       });
       // VisionCamera returns only `path`
-      const rawUri =
-        Platform.OS === "android" ? `file://${pic.path}` : pic.path;
+      const rawUri = Platform.OS === "android" ? `file://${pic.path}` : pic.path;
 
       // compress + resize with expo-image-manipulator
       const manipulated = await ImageManipulator.manipulateAsync(
@@ -153,11 +149,7 @@ export default function CameraModal({ visible, onClose, onPhoto }: Props) {
 
       <Box style={[styles.controls]}>
         <TouchableOpacity style={[styles.shutter]} onPress={takePhoto}>
-          {busy ? (
-            <ActivityIndicator color="black" />
-          ) : (
-            <Box style={[styles.dot]} />
-          )}
+          {busy ? <ActivityIndicator color="black" /> : <Box style={[styles.dot]} />}
         </TouchableOpacity>
       </Box>
     </Box>

@@ -51,15 +51,19 @@ export const baseTheme = createTheme({
     pscSideBorder: "#9EBC8A",
     pscSideBorderBg: "#9EBC8A",
 
-       //Logs Chat
+    //Logs Chat
     logsOuter: "#9EBC8A",
     logsInner: "#111",
     logsBg: "#EEEFE0",
-    logPrimary:"#9EBC8A",
-    logsSecondary: '#2C3930',
+    logPrimary: "#9EBC8A",
+    logsSecondary: "#2C3930",
     iconBtn: "black",
-    iconBtnColor: 'black'
-    
+    iconBtnColor: "black",
+
+    //input tool bar
+    //inputToolBarBg: "#2C3930",
+    inputToolBarBg: "#EEEFE0",
+    inputToolBarBorder: "black",
   },
   spacing: {
     none: 0,
@@ -122,7 +126,7 @@ export const darkTheme = createTheme({
 
     //Card Colors:
     title: "#B0DB9C",
-    
+
     plain: "#f6f6f6",
     cardBg: "#2C3930",
     logBg: "black",
@@ -158,11 +162,16 @@ export const darkTheme = createTheme({
     chatFooterBg: "#2C3930",
     chatFooterBorder: "#9EBC8A",
     chatInput: "#3F4F44",
-    chatInputColor: 'white',
+    chatInputColor: "white",
     logPrimary: "black",
     logsSecondary: "white",
     iconBtn: "#9EBC8A",
     iconBtnColor: "white",
+
+    //input tool bar
+    //inputToolBarBg: "#292e2bff",
+    inputToolBarBg: "black",
+    inputToolBarBorder: "white",
   },
 });
 

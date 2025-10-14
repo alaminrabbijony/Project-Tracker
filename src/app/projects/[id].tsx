@@ -1,11 +1,6 @@
 import CreateProcessBtn from "@/comp/general/CreateProcess";
 import ProcessCard from "@/comp/general/ProcessCard";
-import {
-  Container,
-  ScrollView,
-  TxtBody,
-  TxtTitle,
-} from "@/comp/general/RestyleComp";
+import { Container, ScrollView, TxtBody, TxtTitle } from "@/comp/general/RestyleComp";
 import { useTheme } from "@shopify/restyle";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
@@ -16,10 +11,9 @@ export default function ProjectScreen() {
   const { id } = useLocalSearchParams();
   const theme = useTheme();
 
-
   const onSubmit = () => {
-    router.push(`/process/[id]`)
-  }
+    router.push(`/process/[id]`);
+  };
 
   return (
     <>
@@ -35,16 +29,23 @@ export default function ProjectScreen() {
       />
 
       <Container style={[styles.header]}>
-        <TxtTitle style={[styles.title, {color: theme.colors.title}]}>Project Name</TxtTitle>
-        <TxtBody style={[styles.date,{color: theme.colors.plain}]}>Date: 24/08/2025</TxtBody>
+        <TxtTitle style={[styles.title, { color: theme.colors.title }]}>
+          Project Name
+        </TxtTitle>
+        <TxtBody style={[styles.date, { color: theme.colors.plain }]}>
+          Date: 24/08/2025
+        </TxtBody>
       </Container>
       <CreateProcessBtn onPress={onSubmit}>Create Process</CreateProcessBtn>
       <Container style={[styles.processList]}>
         <TxtTitle
-          style={[styles.processTxt, { 
-            borderColor: theme.colors.psBorder,
-            color: theme.colors.title
-           }]}
+          style={[
+            styles.processTxt,
+            {
+              borderColor: theme.colors.psBorder,
+              color: theme.colors.title,
+            },
+          ]}
         >
           Process
         </TxtTitle>
